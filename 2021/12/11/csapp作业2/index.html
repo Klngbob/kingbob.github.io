@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="主要是CSAPP书上第三章的习题：3.58，3.60，3.63，3.69，3.70">
+  <meta name="author" content="KingBob">
+  <meta name="keywords" content="">
+  <meta name="description" content="主要是CSAPP书上第三章的习题：3.58，3.60，3.63，3.69，3.70">
+<meta property="og:type" content="article">
+<meta property="og:title" content="csapp作业二">
+<meta property="og:url" content="http://example.com/2021/12/11/csapp%E4%BD%9C%E4%B8%9A2/index.html">
+<meta property="og:site_name" content="KingBobのBlog">
+<meta property="og:description" content="主要是CSAPP书上第三章的习题：3.58，3.60，3.63，3.69，3.70">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-11T15:58:55.000Z">
+<meta property="article:modified_time" content="2021-12-11T16:01:19.519Z">
+<meta property="article:author" content="KingBob">
+<meta property="article:tag" content="汇编">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>csapp作业二 - KingBobのBlog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="csapp作业二">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-11 23:58" pubdate>
+        December 11, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">csapp作业二</h1>
+            
+            <div class="markdown-body">
+              <h1 id="第二次作业"><a href="#第二次作业" class="headerlink" title="第二次作业"></a>第二次作业</h1><h2 id="3-58"><a href="#3-58" class="headerlink" title="3.58"></a>3.58</h2><p><strong>题目描述</strong></p>
+<p>​    一个函数的原型为 <code>long decode2(long x, long y, long z);</code></p>
+<p>​    <code>GCC</code>产生如下汇编代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs assembly">decode2:<br>	subq	%rdx, %rsi<br>	imulq	%rsi, %rdi<br>	movq	%rsi, %rax<br>	salq	$63, %rax<br>	sarq	$63, %rax<br>	xorq	%rdi, %rax<br>	ret<br></code></pre></td></tr></table></figure>
+<p>参数<code>x</code>、<code>y</code>和<code>z</code>通过寄存器<code>%rdi</code>、<code>%rsi</code>和<code>%rdx</code>传递。代码将返回值存放在寄存器<code>%rax</code>中。</p>
+<p>写出等价于上述汇编代码的<code>decode2</code>的<code>C</code>代码。</p>
+<p><strong>解答程序如下：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-title">decode2</span><span class="hljs-params">(<span class="hljs-keyword">long</span> x, <span class="hljs-keyword">long</span> y, <span class="hljs-keyword">long</span> z)</span></span><br><span class="hljs-function"></span>&#123;<br>    y = y - z;<br>    x = x * y;<br>    y = y &lt;&lt; <span class="hljs-number">63</span>;<br>    y = y &gt;&gt; <span class="hljs-number">63</span>;<br>    y= y ^ x;<br>    <span class="hljs-keyword">return</span> y;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="3-60"><a href="#3-60" class="headerlink" title="3.60"></a>3.60</h2><p><strong>题目描述：</strong></p>
+<p>​    考虑下面的汇编代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs assembly">long loop(long x,int n)<br>x in %rdi, n in %esi<br>loop:<br>	movl	%esi, %ecx<br>	movl	$1,	%edx<br>	movl	$0,	%eax<br>	jmp		.L2<br>.L3:<br>	movq	%rdi, %r8<br>	andq	%rdx, %r8<br>	orq		%r8, %rax<br>	salq	%cl, %rdx<br>.L2:<br>	testq	%rdx, %rdx<br>	jne		.L3<br>	rep; ret<br></code></pre></td></tr></table></figure>
+<p>​    以上代码是编译以下整体形式的<code>C</code>代码产生的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-title">loop</span><span class="hljs-params">(<span class="hljs-keyword">long</span> x, <span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">long</span> result = ____0_____;<br>    <span class="hljs-keyword">long</span> mask;<br>    <span class="hljs-keyword">for</span> (mask = ___1___; mask ___！= <span class="hljs-number">0</span> ____ ; mask = __mask &lt;&lt; (n &amp; <span class="hljs-number">0xff</span>)__ )&#123;<br>        result |= __(x&amp;mask)__;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>​    你的任务是填写这个<code>C</code>代码中缺失的部分，得到一个程序等价于产生的汇编代码。回想一下，这个函数的结果是在寄存器<code>%rax</code>中返回的。你会发现以下工作很有帮助：检查循环之前、之中和之后的汇编代码，形成一个寄存器和程序变量之间一致的映射。</p>
+<p>​    A. 哪个寄存器保存着程序值<code>x</code>、<code>n</code>、<code>result</code>和<code>mask</code>？</p>
+<p>​    B. <code>result</code>和<code>mask</code>的初始值是什么？</p>
+<p>​    C. <code>mask</code>的测试条件是什么？</p>
+<p>​    D. <code>mask</code>是如何被修改的？</p>
+<p>​    E. <code>result</code>是如何被修改的？</p>
+<p>​    F. 填写这段<code>C</code>代码中所有缺失的部分。</p>
+<p><strong>解答：</strong></p>
+<p>​    <code>A</code>：<code>%r8</code>保存着<code>x</code>，<code>%ecx</code>保存着<code>n</code>，<code>%rax</code>保存着<code>result</code>，<code>%rdx</code>保存着<code>mask</code>。</p>
+<p>​    <code>B</code>：<code>result</code>的初始值为<code>0</code>，<code>mask</code>的初始值为<code>1</code></p>
+<p>​    <code>C</code>：根据<code>.L2</code>中<code>testq %rdx, %rdx</code>指令可以看出，<code>mask</code>的测试条件是<code>mask</code>是否等于<code>0</code>，如果等于<code>0</code>则返回，否则继续循环。</p>
+<p>​    <code>D</code>：根据指令<code>salq %cl,%rdx</code>可知，<code>mask</code>每次循环需要进行左移操作，左移位数为<code>%cl</code>中的值，由于<code>%ecx</code>中存储着<code>n</code>的值，但是<code>%cl</code>为<code>n</code>的低<code>8</code>位，所以最终<code>mask=mask &lt;&lt; (n &amp; 0xff)</code>。</p>
+<p>​    <code>E</code>：根据<code>.L3</code>中前三条指令可以看出，<code>result=(x&amp;mask)|result</code></p>
+<p>​    <code>F</code>：完整程序如上。</p>
+<h2 id="3-63"><a href="#3-63" class="headerlink" title="3.63"></a>3.63</h2><p><strong>题目描述：</strong></p>
+<p>​    这个程序给你一个机会，从反汇编机器代码逆向工程一个<code>switch</code>语句。在下面这个过程中，去掉了<code>switch</code>语句的主体：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-title">switch_prob</span><span class="hljs-params">(<span class="hljs-keyword">long</span> x, <span class="hljs-keyword">long</span> n)</span></span>&#123;<br>    <span class="hljs-keyword">long</span> result = x;<br>    <span class="hljs-keyword">switch</span>(n)&#123;<br>         <span class="hljs-comment">/* Fill in code here */</span><br>    	<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>​    反汇编机器代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs assembly">long switch_prob(long x, long n)<br>x in %rdi, n in %rsi<br>0000000000400590 &lt;switch_prob&gt;:<br>400590:	48 83 ee 3c				sub    &amp;0x3c, %rsi<br>400594:	48 83 fe 05				cmp	   $0x5, %rsi<br>400598: 77 29				    ja	   4005c3 &lt;switch_prob+0x33&gt;<br>40059a: ff 24 f5 f8 06 40 00	 jmpq	*0x4006f8(, %rsi, 8)<br>4005a1: 48 8d 04 fd 00 00 00	 lea	0x0(, %rdi, 8), %rax<br>4005a8: 00<br>4005a9: c3					    retq<br>4005aa: 48 89 f8				mov    %rdi, %rax<br>4005ad: 48 c1 f8 03				sar	   $0x3, %rax<br>4005b1: c3					    retq<br>4005b2: 48 89 f8				mov	   %rdi, %rax<br>4005b5: 48 c1 e0 04				shl	   $0x4, %rax<br>4005b9: 48 29 f8				sub	   %rdi, %rax<br>4005bc: 48 89 c7				mov    %rax, %rdi<br>4005bf: 48 0f af ff				imul   %rdi, %rdi<br>4005c3: 48 8d 47 4b				lea    0x4b(%rdi), %rax<br>4005c7: c3					   retq<br></code></pre></td></tr></table></figure>
+<p>​    跳转表驻留在内存的不同区域中。可以从第5行的间接跳转看出来，跳转表的起始地址为<code>0x4006f8</code>。用调试器<code>GDB</code>，我们可以用命令<code>x/6gx 0x4006f8</code>来检查组成跳转表的6个8字节字的内存。<code>GDB</code>打印出下面的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs assembly">(gdb)x/6gx 0x4006f8<br>0x4006f8:	0x00000000004005a1	0x00000000004005c3<br>0x400708:	0x00000000004005a1	0x00000000004005aa<br>0x400718:	0x00000000004005b2	0x00000000004005bf<br></code></pre></td></tr></table></figure>
+<p>​    用<code>C</code>代码填写开关语句的主体，使它的行为与机器代码一致。</p>
+<p><strong>解答：</strong></p>
+<p>​    首先由反汇编代码前两行可以看出，<code>n</code>需要减去<code>60</code>，且<code>case</code>的情况只有5种，所以<code>case</code>中取值范围是<code>60~65</code>；接下来看跳转表中内容，分别对应6种情况与跳转地址。通过地址比对可以写出如下程序。</p>
+<p><strong>程序如下：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-title">switch_prob</span><span class="hljs-params">(<span class="hljs-keyword">long</span> x, <span class="hljs-keyword">long</span> n)</span></span>&#123;<br>    <span class="hljs-keyword">long</span> result = x;<br>    <span class="hljs-keyword">switch</span>(n)&#123;<br>         <span class="hljs-comment">/* Fill in code here */</span><br>    	<span class="hljs-keyword">case</span> <span class="hljs-number">60</span>：<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">62</span>: <span class="hljs-comment">//case 60、62执行相同功能，case 61执行default，因此可以合并</span><br>            <span class="hljs-keyword">return</span> x * <span class="hljs-number">8</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">63</span>:<br>            <span class="hljs-keyword">return</span> x &gt;&gt; <span class="hljs-number">3</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">64</span>:<br>            x = x &lt;&lt; <span class="hljs-number">4</span> - x;<br>        <span class="hljs-keyword">case</span> <span class="hljs-number">65</span>:<br>            x= x * x;<br>        <span class="hljs-keyword">default</span>:<br>            result = x + <span class="hljs-number">75</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="3-69"><a href="#3-69" class="headerlink" title="3.69"></a>3.69</h2><p><strong>题目描述：</strong></p>
+<p>​    你负责维护一个大型的<code>C</code>程序，遇到下面的代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>    <span class="hljs-keyword">int</span> first;<br>    a_struct a[CNT];<br>    <span class="hljs-keyword">int</span> last;<br>&#125; b_struct;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">(<span class="hljs-keyword">long</span> i, b_struct *bp)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> n = bp-&gt;first + bp-&gt;last;<br>    a_struct *ap = &amp;bp-&gt;a[i];<br>    ap-&gt;x[ap-&gt;idx] = n;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>​    编译时常数<code>CNT</code>和结构<code>a_struct</code>的声明是在一个你没有访问权限的文件中。幸好，你有代码的<code>.o</code>版本，可以用<code>OBJDUMP</code>程序来反汇编这些文件，得到下面的反汇编代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs assembly">void test(long i, b_struct *bp)<br>i in %rdi, bp in %rsi<br>0000000000000000 &lt;test&gt;:<br>1	0:	8b 8e 20 01 00 00			mov		0x120(%rsi), %ecx<br>2	6:	03 0e					   add	    (%rsi), %ecx<br>3	8:	48 8d 04 bf				    lea		(%rdi,%rdi,4), %rax<br>4	c:	48 8d 04 c6				    lea		(%rsi, %rax,8), %rax<br>5	10:	48 8b 50 08					mov		0x8(%rax), %rdx<br>6	14:	48 63 c9					movslq	%ecx, %rcx<br>7	17:	48 89 4c d0 10				mov		%rcx, 0x10(%rax,%rdx,8) <br>8	1c:	c3						   retq<br></code></pre></td></tr></table></figure>
+<p>​    运用你的逆向工程技术，推断出下列内容：</p>
+<p>​    A. <code>CNT</code>的值</p>
+<p>​    B. 结构<code>a_struct</code>的完整声明。假设这个结构中只有字段<code>idx</code>和<code>x</code>，并且这两个字段保存的都是有符号值。</p>
+<p><strong>解答：</strong></p>
+<p>​    首先反汇编代码前两行表示<code>bp-&gt;first+bp-&gt;last</code>，由于这两个元素在<code>b_struct</code>中分别位于首尾两端，所以可知<code>b_struct</code>的大小是<code>288B</code>；代码中3、4两行可以得到<code>%rax</code>保存着值为<code>bp+40*i</code>，<code>%rdx</code>中保存值为<code>bp+40*i+8</code>，也就是最后指针<code>ap</code>的值，可以看出<code>a_struct</code>的大小是<code>40B</code>，但<code>b_struct</code>第一个元素是一个<code>int</code>型数据，大小是<code>4B</code>，但<code>%rdx</code>中偏移量是<code>8</code>，所以按照内存对齐原则猜测结构<code>a_struct</code>中的最大元素是<code>8B</code>，同时<code>movslq %ecx, %rcx</code>这条指令将<code>n</code>从双字符号拓展至四字，最后存入<code>ap-&gt;x[ap-&gt;idx]</code>中，也可以看出<code>a_struct</code>中<code>x</code>的大小是<code>8B</code>，所以<code>x</code>的类型是<code>long</code>。</p>
+<p>​    所以<code>CNT</code>的大小是<code>(288-8)/40=7</code>，<code>b_struct</code>的大小减去首尾<code>int</code>对齐的两个<code>8B</code>。汇编代码第7行对应<code>ap-&gt;x[ap-&gt;idx] = n</code>，即<code>n</code>要保存到地址为<code>ap+sizeof(idx)+8*idx</code>的位置，接下来分析<code>mov %rcx, 0x10(%rax,%rdx,8)</code>这条指令，先理清<code>%rax</code>和<code>%rdx</code>中的值：</p>
+<p>​    <code>%rax=bp+40*i</code>，<code>%rdx=M[bp+40*i+8]</code>，<code>0x10(%rax,%rdx,8)=bp+40*i+8+8+8*M[bp+40*i+8]</code>，这里有个细节我一直没注意到，所以这题写了很久，原来<code>lea</code>指令是将一个寄存器中的值移到另一个寄存器中，而<code>mov</code>指令才用到了偏移寻址，将以寄存器值为地址对应的数存入了<code>%rdx</code>中（我一直把<code>mov</code>当成<code>lea</code>使用了），所以<code>%rax</code>存的是地址，<code>%rdx</code>存的是操作数。</p>
+<p>​    这样结构<code>a_struct</code>的布局就很明显了，<code>idx</code>为<code>long</code>，<code>x</code>是一个<code>long</code>类型的数组，由于<code>a_struct</code>的大小是<code>40B</code>，所以<code>x</code>大小是<code>32B</code>，共<code>4</code>个元素。</p>
+<p>​    最后，两个结构体声明如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>    <span class="hljs-keyword">int</span> first;<br>    a_struct a[<span class="hljs-number">7</span>];<br>    <span class="hljs-keyword">int</span> last;<br>&#125; b_struct;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>    <span class="hljs-keyword">long</span> idx;<br>    <span class="hljs-keyword">long</span> x[<span class="hljs-number">4</span>];<br>&#125; a_struct;<br></code></pre></td></tr></table></figure>
+<h2 id="3-70"><a href="#3-70" class="headerlink" title="3.70"></a>3.70</h2><p><strong>题目描述：</strong></p>
+<p>​    考虑下面的联合声明：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-number">1</span>	<span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">ele</span> &#123;</span><br><span class="hljs-number">2</span>    	<span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br><span class="hljs-number">3</span>            <span class="hljs-keyword">long</span> *p;<br><span class="hljs-number">4</span>            <span class="hljs-keyword">long</span> y;<br><span class="hljs-number">5</span>        &#125; e1;<br><span class="hljs-number">6</span>    	<span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br><span class="hljs-number">7</span>        	<span class="hljs-keyword">long</span> x;<br><span class="hljs-number">8</span>            <span class="hljs-class"><span class="hljs-keyword">union</span> <span class="hljs-title">ele</span> *<span class="hljs-title">next</span>;</span><br><span class="hljs-number">9</span>    	&#125; e2;<br><span class="hljs-number">10</span>	&#125;;<br></code></pre></td></tr></table></figure>
+<p>​    这个声明说明联合中可以嵌套结构。</p>
+<p>​        下面的函数（省略了一些表达式）对一个链表进行操作，链表是以上联合作为元素的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-number">1</span>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">proc</span> <span class="hljs-params">(<span class="hljs-keyword">union</span> ele *up)</span> </span>&#123;<br><span class="hljs-number">2</span>		up-&gt;_______ = *(_______) - ________;    	<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>​    A. 下列字段的偏移量是多少（以字节为单位）：</p>
+<p>​            <code>e1.p</code>             <strong><strong>___</strong></strong></p>
+<p>​            <code>e1.y</code>           <strong><strong>___</strong></strong></p>
+<p>​            <code>e2.x</code>            <strong>____</strong></p>
+<p>​            <code>e2.next</code>     <strong><strong>___</strong></strong></p>
+<p>​    B. 这个结构总共需要多少个字节？</p>
+<p>​    C. 编译器为<code>proc</code>产生下面的汇编代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs assembly">void proc (union ele *up)<br>up in %rdi<br>1	proc:<br>2		movq	8(%rdi), %rax<br>3		movq	(%rax), %rdx<br>4		movq	(%rdx), %rdx<br>5		subq	8(%rax), %rdx<br>6		movq	%rdx, (%rdi)<br>7		ret<br></code></pre></td></tr></table></figure>
+<p><strong>解答：</strong></p>
+<p>​    <code>union</code>中各对象共享内存，<code>e1</code>中有两个8字节的数据，<code>e2</code>中也有两个8字节的数据，所以<code>union</code>共16个字节，<code>e1</code>和<code>e2</code>共用内存</p>
+<p>​    A.     <code>e1.p</code>             0</p>
+<p>​            <code>e1.y</code>             8</p>
+<p>​            <code>e2.x</code>             0</p>
+<p>​            <code>e2.next</code>        8</p>
+<p>B.  共16字节</p>
+<p>C. </p>
+<p>​        汇编代码第2行执行后，<code>%rax</code>中保存着是<code>*(up+8)</code>，即<code>e1.y</code>或<code>e2.next</code>；第3行执行完后，<code>%rdx</code>中存着<code>*(*(up+8))</code>，所以<code>%rax</code>中保存的只能是一个指针<code>e2.next</code>，执行完第4行指令后，<code>%rdx</code>中存着<code>*(up-&gt;(e2.next)-&gt;e1.p)</code>，此时<code>%rdx</code>中是一个<code>long</code>型数据，所以第5行指令中<code>8(%rax)</code>也必须是一个<code>long</code>型数据，即<code>8(%rax)</code>表示<code>(up-&gt;(e2.next))-&gt;e1.y</code>；最后将<code>%rdx</code>移动到<code>%rdi</code>所指内存中，对应着源代码的赋值语句。</p>
+<p>​        综上，可填出以下代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-number">1</span>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">proc</span> <span class="hljs-params">(<span class="hljs-keyword">union</span> ele *up)</span> </span>&#123;<br><span class="hljs-number">2</span>		up-&gt;__e2.x___ = *(__(up-&gt;e2.next)-&gt;e1.p__) - __(up-&gt;e2.next)-&gt;e1.y__;    	<br>&#125;<br></code></pre></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CSAPP/">CSAPP</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/05/csapp%E4%BD%9C%E4%B8%9A1/">
+                        <span class="hidden-mobile">CSAPP作业一</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

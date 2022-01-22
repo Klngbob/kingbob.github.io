@@ -1,0 +1,790 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="临近高级计算机网络技术期末考试，简单的整理一下课程笔记，列出知识点大纲。">
+  <meta name="author" content="KingBob">
+  <meta name="keywords" content="">
+  <meta name="description" content="临近高级计算机网络技术期末考试，简单的整理一下课程笔记，列出知识点大纲。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Advanced Network Technology">
+<meta property="og:url" content="http://example.com/2021/11/28/Advanced-Network-Technology/index.html">
+<meta property="og:site_name" content="KingBobのBlog">
+<meta property="og:description" content="临近高级计算机网络技术期末考试，简单的整理一下课程笔记，列出知识点大纲。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120160927552.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120161514871.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120162743499.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120164553112.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120191541111.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120191606775.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120210300640.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120203355171.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120203410466.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120204509949.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120204525337.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120212523503.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211121104446115.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211121152840865.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211121152653458.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211121153145446.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211122211416927.png">
+<meta property="og:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211122211437365.png">
+<meta property="article:published_time" content="2021-11-28T13:47:06.000Z">
+<meta property="article:modified_time" content="2021-11-29T11:15:55.544Z">
+<meta property="article:author" content="KingBob">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:/Users/KingBob/AppData/Roaming/Typora/typora-user-images/image-20211120160927552.png">
+  
+  <title>Advanced Network Technology - KingBobのBlog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Advanced Network Technology">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-28 21:47" pubdate>
+        November 28, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Advanced Network Technology</h1>
+            
+            <div class="markdown-body">
+              <p>RFC官网：<a target="_blank" rel="noopener" href="https://www.rfc-editor.org/">https://www.rfc-editor.org/</a></p>
+<h2 id="Chapter-3-Underlying-Technology"><a href="#Chapter-3-Underlying-Technology" class="headerlink" title="Chapter 3  Underlying Technology"></a>Chapter 3  Underlying Technology</h2><h3 id="1、Project-IEEE-802"><a href="#1、Project-IEEE-802" class="headerlink" title="1、Project IEEE  802"></a>1、Project IEEE  802</h3><p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211120160927552.png" srcset="/img/loading.gif" lazyload alt="image-20211120160927552"></p>
+<h3 id="2、以太网帧"><a href="#2、以太网帧" class="headerlink" title="2、以太网帧"></a>2、以太网帧</h3><p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211120161514871.png" srcset="/img/loading.gif" lazyload alt="image-20211120161514871"></p>
+<p>前同步码：56bit交替出现的1和0；用来提醒系统有帧到来，并且使它与输入定时同步</p>
+<p>SFD：帧首定界符，标志（10101011）</p>
+<p>限制以太网帧最大长度有两个原因：</p>
+<ul>
+<li>最初设计以太网时，内存非常昂贵，限制最大长度有助于减少缓存大小。</li>
+<li>最大长度的限制可以防止一个站垄断了共享媒体，组织其他需要发送数据的站发送。</li>
+</ul>
+<h3 id="3、MAC地址"><a href="#3、MAC地址" class="headerlink" title="3、MAC地址"></a>3、MAC地址</h3><p>格式：6字节，每个字节用冒号隔开</p>
+<p>单播：目的地址第一个字节最低位是0</p>
+<p>多播：目的地址第一个字节最低位是1</p>
+<p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211120162743499.png" srcset="/img/loading.gif" lazyload alt="image-20211120162743499"></p>
+<p><strong>注意</strong>：帧在物理线路上的传输格式</p>
+<p><strong>例题3.2</strong>：描绘出地址 <code>47:20:1B:2E:08:EE</code> 是如何发送到线路上去的。</p>
+<p><strong>解：</strong> 该地址是从左到右，逐字节地发送，而对每个字节来说又是从右到左，逐位发送，如下所示：</p>
+<pre><code>**``&lt;- 1110 0010 0000 0100 1101 1000 0111 0100 0001 0000 0111 0111``**
+        74 02 B1 E2 80 EE
+</code></pre><p>也就是小端模式（<code>Little Endian</code>）</p>
+<h3 id="4、标准以太网（802-3）"><a href="#4、标准以太网（802-3）" class="headerlink" title="4、标准以太网（802.3）"></a>4、标准以太网（802.3）</h3><p>数据率：10Mbps</p>
+<p>接入方法：CSMA/CD</p>
+<p>最大帧长：1518字节</p>
+<p>最小帧长：</p>
+<ul>
+<li><p>帧传输时间 $T_r$ 必须是最大传播时间 $T_p$ 的两倍</p>
+</li>
+<li><p>长度：64字节( $2\times25.6\mu s\times 10Mbps=64Bytes$ )</p>
+</li>
+</ul>
+<p>CSMA/CD处理流程：</p>
+<p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211120164553112.png" srcset="/img/loading.gif" lazyload alt="image-20211120164553112"></p>
+<p>二进制指数退避法</p>
+<h3 id="5、快速以太网（802-3u）"><a href="#5、快速以太网（802-3u）" class="headerlink" title="5、快速以太网（802.3u）"></a>5、快速以太网（802.3u）</h3><ul>
+<li>采用星形拓扑</li>
+<li>全双工和半双工通信方式下都保留CSMA/CD</li>
+<li>数据率为100Mbps</li>
+</ul>
+<h3 id="6、吉比特以太网（802-3z）"><a href="#6、吉比特以太网（802-3z）" class="headerlink" title="6、吉比特以太网（802.3z）"></a>6、吉比特以太网（802.3z）</h3><ul>
+<li>数据率1Gbps</li>
+<li>几乎都按全双工方式通信</li>
+</ul>
+<h3 id="7、10G以太网（802-3ae）"><a href="#7、10G以太网（802-3ae）" class="headerlink" title="7、10G以太网（802.3ae）"></a>7、10G以太网（802.3ae）</h3><ul>
+<li>数据率10Gbps</li>
+</ul>
+<h3 id="8、无线局域网（802-11）"><a href="#8、无线局域网（802-11）" class="headerlink" title="8、无线局域网（802.11）"></a>8、无线局域网（802.11）</h3><ul>
+<li>BSS</li>
+<li>ESS</li>
+<li>AP</li>
+<li>RTS</li>
+<li>CTS</li>
+<li>DIFS</li>
+<li>SIFS</li>
+<li>NAV</li>
+<li>编址</li>
+<li>无线局域网不能应用CSMA/CD的原因<ul>
+<li>一个站若要进行碰撞检测则需要同时发送数据和接受碰撞信号，这意味着费用增加和带宽需求增加。</li>
+<li>隐蔽站导致碰撞无法被检测到</li>
+<li>战与站之间距离过远导致信号衰减</li>
+</ul>
+</li>
+<li>隐蔽站<br><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211120191541111.png" srcset="/img/loading.gif" lazyload alt="image-20211120191541111"></li>
+<li>暴露站</li>
+</ul>
+<p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211120191606775.png" srcset="/img/loading.gif" lazyload alt="image-20211120191606775"></p>
+<h3 id="9、P2P广域网"><a href="#9、P2P广域网" class="headerlink" title="9、P2P广域网"></a>9、P2P广域网</h3><ul>
+<li>PPP协议<ul>
+<li>帧格式</li>
+<li>LCP（Link Control Protocol）负责建立、维护和终止链路</li>
+<li>NCP（Network Control Protocol）可以用于携带IP分组</li>
+<li>PPPoE（PPP over Ethernet）</li>
+</ul>
+</li>
+</ul>
+<h3 id="10、数据链路层设备"><a href="#10、数据链路层设备" class="headerlink" title="10、数据链路层设备"></a>10、数据链路层设备</h3><ul>
+<li>集线器（Hub）</li>
+<li>交换机（Switch）</li>
+</ul>
+<h2 id="Chapter-4-Introduction-to-Network-Layer"><a href="#Chapter-4-Introduction-to-Network-Layer" class="headerlink" title="Chapter 4 Introduction to Network Layer"></a>Chapter 4 Introduction to Network Layer</h2><h3 id="1、网络层数据交换"><a href="#1、网络层数据交换" class="headerlink" title="1、网络层数据交换"></a>1、网络层数据交换</h3><ul>
+<li>电路交换</li>
+<li>分组交换<ul>
+<li>无连接服务</li>
+<li>面向连接服务<ul>
+<li>虚电路</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、网络层服务"><a href="#2、网络层服务" class="headerlink" title="2、网络层服务"></a>2、网络层服务</h3><ul>
+<li>源计算机服务<ul>
+<li>上层数据分组</li>
+<li>查找下一跳逻辑地址</li>
+<li>查找下一跳物理地址</li>
+<li>数据报分片</li>
+</ul>
+</li>
+<li>路由器服务<ul>
+<li>查找下一跳逻辑地址</li>
+<li>查找下一跳物理地址</li>
+<li>数据报分片</li>
+</ul>
+</li>
+<li>目的计算机服务<ul>
+<li>重组数据报分片</li>
+<li>数据交付</li>
+<li>数据报分片有效性检测</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、网络层功能"><a href="#3、网络层功能" class="headerlink" title="3、网络层功能"></a>3、网络层功能</h3><ul>
+<li>差错控制：ICMP</li>
+<li>流量控制</li>
+<li>拥塞控制</li>
+</ul>
+<h2 id="Chapter-5-IPv4-Address"><a href="#Chapter-5-IPv4-Address" class="headerlink" title="Chapter 5 IPv4 Address"></a>Chapter 5 IPv4 Address</h2><h3 id="1、特殊地址块"><a href="#1、特殊地址块" class="headerlink" title="1、特殊地址块"></a>1、特殊地址块</h3><ul>
+<li>全0地址：通常用在主机不知道自己的ip地址，且为了找出自己的地址，向DHCP服务器发送全1广播地址时使用。</li>
+</ul>
+<h3 id="2、NAT"><a href="#2、NAT" class="headerlink" title="2、NAT"></a>2、NAT</h3><ul>
+<li>PAT（Port Address Translation）端口多路复用</li>
+<li>NAPT（Network Address Port Tranlation）网络地址端口转换</li>
+<li><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211120210300640.png" srcset="/img/loading.gif" lazyload alt="image-20211120210300640"></li>
+</ul>
+<h3 id="3、Question"><a href="#3、Question" class="headerlink" title="3、Question"></a>3、Question</h3><ul>
+<li><p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211120203355171.png" srcset="/img/loading.gif" lazyload alt="image-20211120203355171"></p>
+</li>
+<li><p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211120203410466.png" srcset="/img/loading.gif" lazyload alt="image-20211120203410466"></p>
+</li>
+<li><p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211120204509949.png" srcset="/img/loading.gif" lazyload alt="image-20211120204509949"></p>
+</li>
+<li><p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211120204525337.png" srcset="/img/loading.gif" lazyload alt="image-20211120204525337"></p>
+</li>
+</ul>
+<h2 id="Chapter-6-Delivery-and-Forwarding-of-IP-Packets"><a href="#Chapter-6-Delivery-and-Forwarding-of-IP-Packets" class="headerlink" title="Chapter 6 Delivery and Forwarding of IP Packets"></a>Chapter 6 Delivery and Forwarding of IP Packets</h2><h3 id="1、交付（Delivery）"><a href="#1、交付（Delivery）" class="headerlink" title="1、交付（Delivery）"></a>1、交付（Delivery）</h3><p>​    对分组的物理传送</p>
+<h3 id="2、转发（Forwarding）"><a href="#2、转发（Forwarding）" class="headerlink" title="2、转发（Forwarding）"></a>2、转发（Forwarding）</h3><p>​    查找路由表找到到达目的分组的路径</p>
+<h3 id="3、路由选择（Routing）"><a href="#3、路由选择（Routing）" class="headerlink" title="3、路由选择（Routing）"></a>3、路由选择（Routing）</h3><p>​    找寻并维护所有可能目的地的路径</p>
+<h3 id="4、Question"><a href="#4、Question" class="headerlink" title="4、Question"></a>4、Question</h3><p>​    <img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211120212523503.png" srcset="/img/loading.gif" lazyload alt="image-20211120212523503"></p>
+<h2 id="Chapter-7-Internet-Protocol-Version-4（IPv4）"><a href="#Chapter-7-Internet-Protocol-Version-4（IPv4）" class="headerlink" title="Chapter 7 Internet Protocol Version 4（IPv4）"></a>Chapter 7 Internet Protocol Version 4（IPv4）</h2><p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211121104446115.png" srcset="/img/loading.gif" lazyload alt="image-20211121104446115"></p>
+<h3 id="1、IP数据报格式"><a href="#1、IP数据报格式" class="headerlink" title="1、IP数据报格式"></a>1、IP数据报格式</h3><ul>
+<li>分片</li>
+<li>选项字段<ul>
+<li>无操作选项</li>
+<li>选项结束选项</li>
+<li>记录路由选项：选项字段中记录源数据报经过路由器的出口地址</li>
+<li>严格源路由选项：指定源数据报经过路由器的入口IP地址</li>
+<li>不严格源路由选项</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、IP-over-ATM"><a href="#2、IP-over-ATM" class="headerlink" title="2、IP over ATM"></a>2、IP over ATM</h3><h2 id="Chapter-8-Address-Resolution-Protocol（ARP）"><a href="#Chapter-8-Address-Resolution-Protocol（ARP）" class="headerlink" title="Chapter 8 Address Resolution Protocol（ARP）"></a>Chapter 8 Address Resolution Protocol（ARP）</h2><h3 id="1、ARP"><a href="#1、ARP" class="headerlink" title="1、ARP"></a>1、ARP</h3><h3 id="2、ATMARP"><a href="#2、ATMARP" class="headerlink" title="2、ATMARP"></a>2、ATMARP</h3><ul>
+<li>PVC永久虚电路</li>
+<li>SVC交换虚电路</li>
+<li>LIS</li>
+<li>ARP软件包</li>
+</ul>
+<h2 id="Chapter-9-Internet-Control-Message-Protocol-Version4（ICMPv4）"><a href="#Chapter-9-Internet-Control-Message-Protocol-Version4（ICMPv4）" class="headerlink" title="Chapter 9 Internet Control Message Protocol Version4（ICMPv4）"></a>Chapter 9 Internet Control Message Protocol Version4（ICMPv4）</h2><p>​    网络层IPv4提供的是不可靠和无连接的数据交付（Best Effort Delivery），因此缺少差错控制和辅助机制，由此诞生了ICMPv4协议。</p>
+<p>​    ICMP是网络层协议，但需要先封装成IP数据报才能被传递给下一层，<strong>IP数据报中协议字段是 1 表示其为ICMP报文。</strong></p>
+<h3 id="1、ICMP报文"><a href="#1、ICMP报文" class="headerlink" title="1、ICMP报文"></a>1、ICMP报文</h3><p>​    <img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211121152840865.png" srcset="/img/loading.gif" lazyload alt="image-20211121152840865"></p>
+<ul>
+<li><p><strong>差错报告报文</strong></p>
+<p>​    所有差错报文都包含一个数据部分，其包括原始数据报的IP首部 + 该数据报数据部分前8个字节。加上原始数据报首部是为了向接收差错报文的原始信源给出关于数据报本身的信息。</p>
+<p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211121152653458.png" srcset="/img/loading.gif" lazyload alt="image-20211121152653458"></p>
+<ul>
+<li><p>终点不可达</p>
+<p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211121153145446.png" srcset="/img/loading.gif" lazyload alt="image-20211121153145446"></p>
+<p>代码2和3只能由目的主机产生，其余只能由路由器产生。</p>
+</li>
+<li><p>源点抑制</p>
+<ul>
+<li>目的主机计时器</li>
+</ul>
+</li>
+<li><p>超时</p>
+</li>
+<li><p>参数问题</p>
+</li>
+<li><p>改变路由</p>
+<p>​    改变主机路由</p>
+</li>
+</ul>
+</li>
+<li><p><strong>查询报文</strong> </p>
+<ul>
+<li>回送请求（echo-request）</li>
+<li>回送回答（echo-reply）</li>
+<li>时间戳请求（timestamp-request）</li>
+<li>时间戳回答（timestamp-reply）</li>
+</ul>
+</li>
+<li><p><strong>ping</strong></p>
+</li>
+<li><p><strong>traceroute</strong></p>
+</li>
+</ul>
+<h2 id="Chapter-10-Mobile-IP"><a href="#Chapter-10-Mobile-IP" class="headerlink" title="Chapter 10 Mobile IP"></a>Chapter 10 Mobile IP</h2><h3 id="1、编址"><a href="#1、编址" class="headerlink" title="1、编址"></a>1、编址</h3><ul>
+<li>两个地址<ul>
+<li>归属地址</li>
+<li>转交地址</li>
+</ul>
+</li>
+<li>两个代理<ul>
+<li>归属代理—归属网络上的路由器</li>
+<li>外地代理—外地网络上的路由器</li>
+</ul>
+</li>
+<li>移动主机与远程主机通信三个阶段<ul>
+<li>代理发现（使用ICMP路由器通告报文）<ul>
+<li>发现归属代理</li>
+<li>发现外地代理</li>
+</ul>
+</li>
+<li>登记<ul>
+<li>登记报文使用UDP，代理使用434端口，主机使用一个临时端口。</li>
+</ul>
+</li>
+<li>数据传送<ul>
+<li>远程主机到归属代理</li>
+<li>归属代理到外地代理</li>
+<li>外地代理到移动主机</li>
+<li>移动主机到远程主机</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、移动IP的低效率问题"><a href="#2、移动IP的低效率问题" class="headerlink" title="2、移动IP的低效率问题"></a>2、移动IP的低效率问题</h3><ul>
+<li>两次穿越（2X）</li>
+<li>三角路由选择</li>
+</ul>
+<h2 id="Chapter-11-Unicast-Routing-Protocols"><a href="#Chapter-11-Unicast-Routing-Protocols" class="headerlink" title="Chapter 11 Unicast Routing Protocols"></a>Chapter 11 Unicast Routing Protocols</h2><h3 id="1、Introduction"><a href="#1、Introduction" class="headerlink" title="1、Introduction"></a>1、Introduction</h3><ul>
+<li>路由选择协议<ul>
+<li>域内路由<ul>
+<li>距离向量—RIP（基于UDP</li>
+<li>链路状态—OSPF（基于IP</li>
+</ul>
+</li>
+<li>域间路由<ul>
+<li>路径向量—BGO（基于TCP</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、路由算法"><a href="#2、路由算法" class="headerlink" title="2、路由算法"></a>2、路由算法</h3><ul>
+<li><p>距离向量路由选择</p>
+<ul>
+<li><p>Bellman-Ford算法</p>
+<script type="math/tex; mode=display">
+D_{ij}=minimum\{(c_{i1}+D_{1j}),(c_{i2}+D_{2j}),...,(c_{iN}+D_{Nj})\}</script><p>$D_{ij}$ 表示 $i$ 和 $j$ 之间的最短距离</p>
+<p>$c_{ij}$ 表示  $i$ 和 $j$ 之间的代价</p>
+<p>$N$ 表示结点数</p>
+</li>
+<li><p>RIP（Routing Information Protocol）路由信息协议</p>
+<ul>
+<li>报文格式</li>
+<li>请求和响应</li>
+<li>计时器Timer<ol>
+<li>定期计时器</li>
+<li>截止期定时器</li>
+<li>无用信息收集计时器</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>链路状态路由选择</p>
+<ul>
+<li><p>构造路由表</p>
+<ul>
+<li>每个结点创建一个链路状态分组Link State Packet</li>
+<li>洪泛向其他结点散发LSP</li>
+<li>为每个节点形成一个最短路径树（ $Dijkstra$ 算法）</li>
+<li>基于路径树计算路由表</li>
+</ul>
+</li>
+<li><p>OSPF（Open Shortest Path Firs）协议</p>
+<ul>
+<li>问候分组（Hello Packet）</li>
+<li>数据库描述分组（Database Description Packet）</li>
+<li>链路状态请求分组（LInk State Request Packet）</li>
+<li>链路状态更新分组</li>
+<li>链路状态确认分组</li>
+</ul>
+<p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211122211416927.png" srcset="/img/loading.gif" lazyload alt="image-20211122211416927"></p>
+<p><img src="C:\Users\KingBob\AppData\Roaming\Typora\typora-user-images\image-20211122211437365.png" srcset="/img/loading.gif" lazyload alt="image-20211122211437365"></p>
+</li>
+</ul>
+</li>
+<li><p>路径向量路由选择（Path Vector Routing）</p>
+<ul>
+<li>BGP（Border Gateway Protocol）</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-12-Multicasting-And-Multicast-Routing-Protocols"><a href="#Chapter-12-Multicasting-And-Multicast-Routing-Protocols" class="headerlink" title="Chapter 12 Multicasting And Multicast Routing Protocols"></a>Chapter 12 Multicasting And Multicast Routing Protocols</h2><h3 id="1、多播地址（IPv4）"><a href="#1、多播地址（IPv4）" class="headerlink" title="1、多播地址（IPv4）"></a>1、多播地址（IPv4）</h3><ul>
+<li>本地网络控制地址块</li>
+<li>网际互连控制地址块</li>
+</ul>
+<h3 id="2、数据链路层多播分组"><a href="#2、数据链路层多播分组" class="headerlink" title="2、数据链路层多播分组"></a>2、数据链路层多播分组</h3><ul>
+<li>支持多播的网络（大部分局域网<ul>
+<li>MAC地址转换</li>
+</ul>
+</li>
+<li>不支持多播的网络（大部分广域网<ul>
+<li>隧道技术</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、IGMP（Internet-Group-Management-Protocol）网际组管理协议"><a href="#3、IGMP（Internet-Group-Management-Protocol）网际组管理协议" class="headerlink" title="3、IGMP（Internet Group Management Protocol）网际组管理协议"></a>3、IGMP（Internet Group Management Protocol）网际组管理协议</h3><ul>
+<li>IGMP报文<ul>
+<li>成员关系查询报文</li>
+<li>成员关系报告报文</li>
+<li></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/05/csapp%E4%BD%9C%E4%B8%9A1/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CSAPP作业一</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/28/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E5%AE%9E%E9%AA%8C%E4%B8%80/">
+                        <span class="hidden-mobile">算法导论实验一</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
